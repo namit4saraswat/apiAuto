@@ -24,5 +24,11 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
-  name: 'apiAuto'
+  name: 'apiAuto',
+  plugins: {
+    allure: {
+      enabled: true,
+      require: '@codeceptjs/allure-legacy',
+    },
+  }
 }
