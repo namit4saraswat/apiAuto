@@ -4,6 +4,7 @@ const createUser = require('../assets/schema/createUser');
 const updateUser = require('../assets/schema/updateUser');
 const createUserPayload = require("../assets/payload/createUser")
 const updateUserPayload = require("../assets/payload/updateUser")
+const { expect, assert } = require('chai');
 
 Feature('Testing reqRes').tag('@reqRes')
 
@@ -26,6 +27,11 @@ Scenario('Create user', async ({ I }) => {
     await I.seeResponseCodeIsSuccessful();
     await I.seeResponseContainsKeys(['name', 'job']);
     await I.seeResponseMatchesJsonSchema(createUser);
+    await I.seeResponseValidByCallback(({ data, status, expect }) => {
+       expect(data.name.length).to.be.gte(10);
+       expect(status).to.equal(201)
+      })
+      
 })
 
 Scenario('Update user', async ({ I }) => {
