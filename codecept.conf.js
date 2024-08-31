@@ -1,4 +1,5 @@
 const { setHeadlessWhen, setCommonPlugins } = require('@codeceptjs/configure');
+require('dotenv').config();
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(process.env.HEADLESS);
@@ -12,7 +13,7 @@ exports.config = {
   output: './output',
   helpers: {
     REST: {
-      endpoint: 'https://reqres.in/api',
+      endpoint: process.env.URL,
       defaultHeaders: {
         'Content-Type': 'application/json',
       }

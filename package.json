@@ -12,6 +12,7 @@
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "codeceptjs": "^3.6.5",
+    "dotenv": "^16.4.5",
     "joi": "^17.13.3"
   }
 }
