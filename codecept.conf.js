@@ -12,8 +12,12 @@ exports.config = {
   output: './output',
   helpers: {
     REST: {
-      endpoint: 'https://reqres.in/api'
+      endpoint: 'https://reqres.in/api',
+      defaultHeaders: {
+        'Content-Type': 'application/json',
+      }
     },
+    
     JSONResponse: {}
   },
   include: {
