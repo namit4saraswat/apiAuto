@@ -1,0 +1,15 @@
+{
+  "name": "apiauto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "codeceptjs run",
+    "tag": "codeceptjs run --grep $TAG"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "codeceptjs": "^3.6.5"
+  }
+}
