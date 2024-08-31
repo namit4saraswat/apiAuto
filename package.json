@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "codeceptjs run",
-    "tag": "codeceptjs run --grep $TAG"
+    "tag": "codeceptjs run --grep $TAG",
+    "workers": "codeceptjs run-workers 3"
   },
   "author": "",
   "license": "ISC",
