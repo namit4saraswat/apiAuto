@@ -1,7 +1,9 @@
 const getUserList = require('../assets/schema/getUserList');
 const getSingleUser = require('../assets/schema/getSingleUser');
 const createUser = require('../assets/schema/createUser');
+const updateUser = require('../assets/schema/updateUser');
 const createUserPayload = require("../assets/payload/createUser")
+const updateUserPayload = require("../assets/payload/updateUser")
 
 Feature('Testing reqRes').tag('@reqRes')
 
@@ -24,4 +26,16 @@ Scenario('Create user', async ({ I }) => {
     await I.seeResponseCodeIsSuccessful();
     await I.seeResponseContainsKeys(['name', 'job']);
     await I.seeResponseMatchesJsonSchema(createUser);
+})
+
+Scenario('Update user', async ({ I }) => {
+    let resp = await I.sendPutRequest('/users/2',updateUserPayload)
+    await I.seeResponseCodeIsSuccessful();
+    await I.seeResponseContainsKeys(['name', 'job', 'updatedAt']);
+    await I.seeResponseMatchesJsonSchema(updateUser);
+})
+
+Scenario('Delete user', async ({ I }) => {
+    let resp = await I.sendDeleteRequest('/users/2')
+    await I.seeResponseCodeIsSuccessful();
 })
